@@ -30,7 +30,7 @@ services:
       DOCKER_INFLUXDB_INIT_PASSWORD: adminpassword
       DOCKER_INFLUXDB_INIT_ORG: telemetry-org
       DOCKER_INFLUXDB_INIT_BUCKET: telemetry
-      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: my-super-secret-token-do-not-expose
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: my-super-secret-token
   
   grafana:
     image: grafana/grafana:10.2.0
