@@ -15,3 +15,5 @@ If CPU on the payments service spikes above 90%, you see it on the dashboard wit
 The whole thing runs locally with one command.
  
 ---
+## The full pipleline of data flow
+Generator → API → Kafka → Processor → InfluxDB
