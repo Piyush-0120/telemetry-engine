@@ -1,0 +1,16 @@
+apiVersion: 1
+
+datasources:
+  - name: InfluxDB
+    type: influxdb
+    uid: f3112ced-9cc3-4280-9913-ea58d8b7ba2a
+    access: proxy
+    url: http://influxdb:8086
+    jsonData:
+      version: Flux
+      organization: telemetry-org
+      defaultBucket: telemetry
+    secureJsonData:
+      token: $__env{INFLUX_TOKEN}
+    isDefault: true
+    editable: true

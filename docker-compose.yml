@@ -30,7 +30,9 @@ services:
       DOCKER_INFLUXDB_INIT_PASSWORD: adminpassword
       DOCKER_INFLUXDB_INIT_ORG: telemetry-org
       DOCKER_INFLUXDB_INIT_BUCKET: telemetry
-      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: my-super-secret-token
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: ${INFLUX_TOKEN}
+    volumes:
+      - influxdb-data:/var/lib/influxdb2
   
   grafana:
     image: grafana/grafana:10.2.0
@@ -38,3 +40,12 @@ services:
       - "3001:3000"
     depends_on:
       - influxdb
+    environment:
+      INFLUX_TOKEN: ${INFLUX_TOKEN}
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+  
+volumes:
+  influxdb-data:
+  grafana-data:
