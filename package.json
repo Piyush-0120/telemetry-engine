@@ -1,0 +1,17 @@
+{
+  "name": "telemetry-engine",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "api": "node packages/api/src/index.js",
+    "processor": "node packages/processor/src/index.js",
+    "generator": "node packages/generator/src/index.js",
+    "dev": "concurrently \"npm run api\" \"npm run processor\" \"npm run generator\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
